@@ -2,3 +2,25 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --color-primary: #020912;
+  --color-secondary: #161c23;
+  --color-tertiary: #fdfeff;
+  --color-quaternary: #bdf7ff;
+  --box-shadow: #fdfeff 0 15px 30px -5px;
+  --font-family: "Roboto", sans-serif;
+  --font-size: 16px;
+  --font-size-sm: 0.625rem;
+  --font-size-md: 0.75rem;
+  --font-size-default: 1rem;
+  --font-size-lg: 1.1875rem;
+  --font-size-xl: 1.5625rem;
+  --container-width: 100%;
+  --container-max-width: 75rem;
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
