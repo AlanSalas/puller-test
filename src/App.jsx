@@ -10,6 +10,7 @@ import Products from "pages/Products";
 import ProductDetail from "pages/ProductDetail";
 import CreateEditProduct from "pages/CreateEditProduct";
 import Categories from "pages/Categories";
+import CreateCategory from "pages/CreateCategory";
 import Profile from "pages/Profile";
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="product/create" element={<CreateEditProduct />} />
             <Route path="product/edit/:id" element={<CreateEditProduct />} />
             <Route path="categories" element={<Categories />} />
+            <Route path="category/create" element={<CreateCategory />} />
             <Route path="profile" element={<Profile />} />
           </Route>
           {/* Public Routes */}

@@ -1,0 +1,15 @@
+.categories-page {
+  background-color: var(--color-primary);
+  height: 100%;
+  width: 100%;
+}
+
+.categories-page h1 {
+  margin-bottom: 2rem;
+}
+
+.categories-actions {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: space-around;
+}
