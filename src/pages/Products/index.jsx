@@ -1,9 +1,9 @@
 import Input from "components/Input";
 import GroupCategories from "components/GroupCategories";
+import ListProduct from "components/ListProduct";
 import { AiOutlineSearch } from "react-icons/ai";
 
 import "./style.css";
-import ListProduct from "components/ListProduct";
 
 const Products = () => {
   return (

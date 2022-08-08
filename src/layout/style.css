@@ -1,6 +1,7 @@
 .layout {
-  border: 1px solid red;
+  background: var(--color-primary);
   height: 100vh;
   position: relative;
+  overflow: auto;
   width: 100%;
 }

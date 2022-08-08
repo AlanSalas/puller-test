@@ -6,7 +6,7 @@ const SignUp = () => {
   return (
     <div className="signup-page">
       <div className="container">
-        <h1 className="color-tertiary font-size-xl text-center">Create account</h1>
+        <h1 className="color-tertiary text-center">Create account</h1>
         <Card style={{ width: "100%", padding: "5rem 0.8rem" }}>
           <SignupForm />
         </Card>
