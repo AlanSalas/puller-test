@@ -1,0 +1,13 @@
+.reset-page {
+  background-color: var(--color-primary);
+  height: 100%;
+  width: 100%;
+}
+
+.reset-page h1 {
+  margin-bottom: 2rem;
+}
+
+.reset-page h2 {
+  margin-bottom: 2rem;
+}
