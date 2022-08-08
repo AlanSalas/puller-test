@@ -7,7 +7,7 @@ import Activation from "pages/Activation";
 import ForgotPassword from "pages/ForgotPassword";
 import ResetPassword from "pages/ResetPassword";
 import Products from "pages/Products";
-import ProductDetail from "pages/Products";
+import ProductDetail from "pages/ProductDetail";
 import CreateEditProduct from "pages/CreateEditProduct";
 import Categories from "pages/Categories";
 import Profile from "pages/Profile";

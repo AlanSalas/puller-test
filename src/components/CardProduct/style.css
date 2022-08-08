@@ -1,0 +1,14 @@
+.product-image-container {
+  position: relative;
+  width: 100%;
+}
+
+.product-image {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  height: auto;
+  width: 100%;
+}
+
+.product-details {
+  padding-top: 0.5rem;
+}

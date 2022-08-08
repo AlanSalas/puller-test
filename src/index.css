@@ -40,6 +40,10 @@ h2 {
   font-size: var(--font-size-lg);
 }
 
+h3 {
+  font-size: var(--font-size-default);
+}
+
 .color-primary {
   color: var(--color-primary);
 }
@@ -76,6 +80,10 @@ h2 {
   font-size: var(--font-size-xl);
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .text-center {
   text-align: center;
 }
@@ -86,6 +94,13 @@ h2 {
 
 .text-right {
   text-align: right;
+}
+
+.text-truncate {
+  width: calc(100% - 5%);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container {

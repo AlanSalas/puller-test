@@ -1,0 +1,19 @@
+.avatar {
+  color: var(--color-primary);
+  background: var(--color-quaternary);
+  border-radius: 100%;
+  box-shadow: var(--box-shadow);
+  height: 2rem;
+  width: 2rem;
+  /* Flex */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-img {
+  border-radius: inherit;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
