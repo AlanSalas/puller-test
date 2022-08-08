@@ -1,0 +1,21 @@
+.detail-page {
+  background-color: var(--color-primary);
+  height: 100%;
+  width: 100%;
+}
+
+.detail {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.detail-image {
+  border-radius: var(--border-radius);
+  height: 27.5rem;
+  width: inherit;
+}
+
+.detail-actions {
+  display: flex;
+  justify-content: space-around;
+}

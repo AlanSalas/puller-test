@@ -1,0 +1,23 @@
+.navigation-button {
+  background: var(--color-tertiary);
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.navigation-button:active,
+.navigation-button:hover {
+  opacity: 0.8;
+  outline: 0;
+}
+
+.navigation-button:active {
+  transform: scale(0.9);
+}

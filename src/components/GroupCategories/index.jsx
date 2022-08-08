@@ -3,10 +3,12 @@ import "./style.css";
 
 const data = ["electronics", "jewelery", "men's clothing", "women's clothing"];
 
-const GroupCategories = ({ style }) => {
+const GroupCategories = ({ style, detail }) => {
   return (
     <div style={{ ...style }} className="categories">
-      <h3 className="color-tertiary">Categories</h3>
+      <h3 className={detail ? "color-tertiary font-default" : "color-tertiary"}>
+        {detail ? "Category" : "Categories"}
+      </h3>
       <div className="categories-list">
         {data.map((item) => (
           <Chip key={item}>{item}</Chip>
