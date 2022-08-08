@@ -1,3 +1,4 @@
+import BottomNavigation from "components/BottomNavigation";
 import { Outlet, useLocation } from "react-router-dom";
 import "./style.css";
 
@@ -7,6 +8,7 @@ const Layout = () => {
   return (
     <div className="layout">
       <Outlet />
+      <BottomNavigation />
     </div>
   );
 };

@@ -2,6 +2,7 @@
   background: var(--color-primary);
   min-height: 100vh;
   height: auto;
+  padding-bottom: var(--bottom-navigation-height);
   position: relative;
   overflow: auto;
   width: 100%;
