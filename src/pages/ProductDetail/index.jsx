@@ -4,7 +4,6 @@ import GroupCategories from "components/GroupCategories";
 import Button from "components/Button";
 import { AiOutlineArrowLeft, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import "./style.css";
 
 const product = {
   id: 1,
@@ -20,44 +19,37 @@ const product = {
   },
 };
 
+const btnStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+};
+
 const ProductDetail = () => {
   const navigate = useNavigate();
   const handleGoBack = () => navigate("/");
   const handleGoToEdit = () => navigate(`/product/edit/${product.id}`, { state: `/product/${product.id}` });
 
   return (
-    <div className="detail-page">
+    <div className="w-100 h-100">
       <div className="container">
         <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
-        <div className="detail">
-          <img className="detail-image" src={product.image} alt={product.name} />
-          <p style={{ margin: "1rem 0" }} className="color-tertiary font-lg bold">
-            {product.title}
-          </p>
-          <p style={{ margin: "1rem 0" }} className="color-tertiary font-default text-right">
-            ${product.price} FRQTAL
-          </p>
+        <div className="w-100 mt-2">
+          <img style={{ height: "27.5rem" }} className="w-100 rounded" src={product.image} alt={product.name} />
+          <p className="color-tertiary font-lg bold my-1">{product.title}</p>
+          <p className="color-tertiary font-default text-right my-1">${product.price} FRQTAL</p>
           <Author
             image="https://lh3.googleusercontent.com/a-/AFdZucq_XQARSQX9avY6VEegAj0nnc8coxY_2yeEOgWXAA=s83-c-mo"
             username="Sarface"
             detail
           />
-          <p style={{ margin: "1rem 0" }} className="color-tertiary font-lg">
-            {product.description}
-          </p>
+          <p className="color-tertiary font-lg my-1">{product.description}</p>
           <GroupCategories detail />
-          <div className="detail-actions">
-            <Button
-              style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-              type="btn--info"
-              onClick={handleGoToEdit}
-            >
+          <div className="my-3 d-flex justify-space-around">
+            <Button style={btnStyle} type="btn--info" onClick={handleGoToEdit}>
               Edit <AiOutlineEdit />
             </Button>
-            <Button
-              style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-              type="btn--error"
-            >
+            <Button style={btnStyle} type="btn--error">
               Delete <AiOutlineDelete />
             </Button>
           </div>

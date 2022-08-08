@@ -3,7 +3,6 @@ import NavigationButton from "components/NavigationButton";
 import CreateCategoryForm from "components/Forms/CreateCategoryForm";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./style.css";
 
 const CreateCategory = () => {
   const navigate = useNavigate();
@@ -12,10 +11,10 @@ const CreateCategory = () => {
   const handleGoBack = () => navigate(from);
 
   return (
-    <div className="create-category-page">
+    <div className="w-100 h-100">
       <div className="container">
-        <NavigationButton icon={AiOutlineArrowLeft} top="1rem" left="1rem" onClick={handleGoBack} />
-        <h1 className="color-tertiary text-center">Create category</h1>
+        <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
+        <h1 className="color-tertiary font-xl text-center mb-2">Create category</h1>
         <Card style={{ width: "100%", padding: "5rem 0.8rem" }}>
           <CreateCategoryForm />
         </Card>

@@ -3,7 +3,12 @@ import GroupCategories from "components/GroupCategories";
 import Button from "components/Button";
 import { AiOutlinePlus, AiOutlineDelete, AiOutlineArrowLeft } from "react-icons/ai";
 import { useLocation, useNavigate } from "react-router-dom";
-import "./style.css";
+
+const btnStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+};
 
 const Categories = () => {
   const navigate = useNavigate();
@@ -13,20 +18,16 @@ const Categories = () => {
   const handleGoCreateCategory = () => navigate("/category/create", { state: "/categories" });
 
   return (
-    <div className="categories-page">
+    <div className="w-100 h-100">
       <div className="container">
-        <NavigationButton icon={AiOutlineArrowLeft} top="1rem" left="1rem" onClick={handleGoBack} />
-        <h1 className="color-tertiary text-center">Categories</h1>
+        <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
+        <h1 className="color-tertiary font-xl text-center mb-2">Categories</h1>
         <GroupCategories page />
-        <div className="categories-actions">
-          <Button
-            style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-            type="btn--success"
-            onClick={handleGoCreateCategory}
-          >
+        <div className="my-3 d-flex justify-space-around">
+          <Button style={btnStyle} type="btn--success" onClick={handleGoCreateCategory}>
             Add <AiOutlinePlus />
           </Button>
-          <Button style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }} type="btn--error">
+          <Button style={btnStyle} type="btn--error">
             Delete <AiOutlineDelete />
           </Button>
         </div>

@@ -1,9 +1,0 @@
-.create-category-page {
-  background-color: var(--color-primary);
-  height: 100%;
-  width: 100%;
-}
-
-.create-category-page h1 {
-  margin-bottom: 2rem;
-}
