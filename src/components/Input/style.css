@@ -49,3 +49,11 @@
 .custom-input svg {
   font-size: var(--font-size-lg);
 }
+
+.custom-input-error {
+  color: var(--color-error);
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: -0.5rem 0 1rem 0;
+}

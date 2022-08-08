@@ -1,6 +1,8 @@
 import BottomNavigation from "components/BottomNavigation";
+import { ToastContainer } from "react-toastify";
 import { Outlet, useLocation } from "react-router-dom";
 import routes from "routes";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 
 const Layout = () => {
@@ -15,6 +17,8 @@ const Layout = () => {
 
   return (
     <div className="layout">
+      <ToastContainer theme="dark" position="top-center" hideProgressBar={false} closeOnClick />
+
       <Outlet />
       {routesWithOutNavigation.includes(pathname) ? null : <BottomNavigation />}
     </div>
