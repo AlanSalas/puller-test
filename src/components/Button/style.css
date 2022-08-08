@@ -1,0 +1,45 @@
+.btn {
+  background: var(--color-primary);
+  border: 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  color: var(--color-tertiary);
+  display: block;
+  font-size: var(--font-size-default);
+  max-width: 100%;
+  min-width: 8.75rem;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:active,
+.btn:hover {
+  opacity: 0.8;
+  outline: 0;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+/* Types */
+
+.btn--success {
+  background-color: var(--color-success);
+  color: var(--color-tertiary);
+}
+
+.btn--error {
+  background-color: var(--color-error);
+  color: var(--color-tertiary);
+}
+
+.btn--info {
+  background-color: var(--color-info);
+  color: var(--color-tertiary);
+}

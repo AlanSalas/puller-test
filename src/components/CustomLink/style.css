@@ -1,0 +1,7 @@
+.custom-link {
+  display: inline-block;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  font-size: var(--font-size-default);
+  color: var(--color-quaternary);
+}

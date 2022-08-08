@@ -1,0 +1,33 @@
+.custom-input {
+  background-color: var(--input-background-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-default);
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  transition: 0.3s ease;
+  width: 100%;
+  /* Flex */
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.custom-input input {
+  height: 2.5rem;
+  border: none;
+  outline: none;
+  background-color: inherit;
+  color: var(--color-primary);
+  width: 100%;
+}
+
+.custom-input:focus,
+.custom-input:hover {
+  outline: none;
+  background-color: white;
+  box-shadow: var(--box-shadow-input);
+}
+
+.custom-input svg {
+  font-size: var(--font-size-lg);
+}
