@@ -21,6 +21,24 @@
   width: 100%;
 }
 
+.custom-input input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-input input[type="file"] {
+  color: white;
+}
+
+.custom-input input[type="file"]::before {
+  color: var(--color-primary);
+  content: "Select image";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
 .custom-input:focus,
 .custom-input:hover {
   outline: none;

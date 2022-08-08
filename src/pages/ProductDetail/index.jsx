@@ -22,10 +22,13 @@ const product = {
 
 const ProductDetail = () => {
   const navigate = useNavigate();
+  const handleGoBack = () => navigate("/");
+  const handleGoToEdit = () => navigate(`/product/edit/${product.id}`, { state: `/product/${product.id}` });
+
   return (
     <div className="detail-page">
       <div className="container">
-        <NavigationButton icon={AiOutlineArrowLeft} onClick={() => navigate("/")} />
+        <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
         <div className="detail">
           <img className="detail-image" src={product.image} alt={product.name} />
           <p style={{ margin: "1rem 0" }} className="color-tertiary font-lg bold">
@@ -44,7 +47,11 @@ const ProductDetail = () => {
           </p>
           <GroupCategories detail />
           <div className="detail-actions">
-            <Button style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }} type="btn--info">
+            <Button
+              style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
+              type="btn--info"
+              onClick={handleGoToEdit}
+            >
               Edit <AiOutlineEdit />
             </Button>
             <Button

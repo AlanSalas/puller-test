@@ -1,8 +1,8 @@
 import "./style.css";
 
-const Button = ({ children, type, style }) => {
+const Button = ({ children, type, style, onClick }) => {
   return (
-    <button style={{ ...style }} className={`btn ${type}`}>
+    <button onClick={onClick} style={{ ...style }} className={`btn ${type}`}>
       {children}
     </button>
   );
