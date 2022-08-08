@@ -1,0 +1,17 @@
+.activation {
+  background-color: var(--color-primary);
+  height: 100%;
+  width: 100%;
+}
+
+.activation h1,
+h3 {
+  margin-bottom: 2rem;
+}
+
+.activation-action {
+  width: 100%;
+  /* Flex */
+  display: flex;
+  justify-content: center;
+}
