@@ -1,6 +1,7 @@
 import { BsPlus, BsFillPersonFill } from "react-icons/bs";
 import { MdCategory, MdLogout } from "react-icons/md";
 import { useNavigate, useLocation } from "react-router-dom";
+import routes from "routes";
 import "./style.css";
 
 const BottomNavigation = () => {
@@ -12,9 +13,9 @@ const BottomNavigation = () => {
     <div className="bottom-navigation">
       <div className="bottom-navigation-item">
         <div
-          onClick={() => navigate("/product/create")}
+          onClick={() => navigate(routes.productCreate)}
           role="button"
-          className={`bottom-navigation-icon ${pathname === "/product/create" && `active`}`}
+          className={`bottom-navigation-icon ${pathname === routes.productCreate && `active`}`}
         >
           <BsPlus />
         </div>
@@ -22,9 +23,9 @@ const BottomNavigation = () => {
       </div>
       <div className="bottom-navigation-item">
         <div
-          onClick={() => navigate("/categories")}
+          onClick={() => navigate(routes.categories)}
           role="button"
-          className={`bottom-navigation-icon ${pathname === "/categories" && `active`}`}
+          className={`bottom-navigation-icon ${pathname === routes.categories && `active`}`}
         >
           <MdCategory />
         </div>
@@ -32,9 +33,9 @@ const BottomNavigation = () => {
       </div>
       <div className="bottom-navigation-item">
         <div
-          onClick={() => navigate("/profile")}
+          onClick={() => navigate(routes.profile)}
           role="button"
-          className={`bottom-navigation-icon ${pathname === "/profile" && `active`}`}
+          className={`bottom-navigation-icon ${pathname === routes.profile && `active`}`}
         >
           <BsFillPersonFill />
         </div>
