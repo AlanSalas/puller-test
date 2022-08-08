@@ -8,7 +8,13 @@
   --color-secondary: #161c23;
   --color-tertiary: #fdfeff;
   --color-quaternary: #bdf7ff;
-  --box-shadow: #fdfeff 0 15px 30px -5px;
+  --color-success: #07bc0c;
+  --color-error: #e74c3c;
+  --color-info: #3498db;
+  --input-background-color: #e0e0e0;
+  --box-shadow: 0px 0px 40px -20px var(--color-tertiary);
+  --box-shadow-input: 0 0 0 2px var(--color-quaternary);
+  --border-radius: 0.3125rem;
   --font-family: "Roboto", sans-serif;
   --font-size: 16px;
   --font-size-sm: 0.625rem;
@@ -23,4 +29,59 @@
 html {
   font-size: var(--font-size);
   font-family: var(--font-family);
+}
+
+.color-primary {
+  color: var(--color-primary);
+}
+
+.color-secondary {
+  color: var(--color-secondary);
+}
+
+.color-tertiary {
+  color: var(--color-tertiary);
+}
+
+.color-quaternary {
+  color: var(--color-quaternary);
+}
+
+.font-sm {
+  font-size: var(--font-size-sm);
+}
+
+.font-md {
+  font-size: var(--font-size-md);
+}
+
+.font-default {
+  font-size: var(--font-size-default);
+}
+
+.font-lg {
+  font-size: var(--font-size-lg);
+}
+
+.font-xl {
+  font-size: var(--font-size-xl);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.container {
+  width: var(--container-width);
+  max-width: var(--container-max-width);
+  height: 100%;
+  padding: 1rem;
 }
