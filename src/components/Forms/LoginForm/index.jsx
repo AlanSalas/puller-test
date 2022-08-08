@@ -2,17 +2,17 @@ import Input from "components/Input";
 import CustomLink from "components/CustomLink";
 import Button from "components/Button";
 import useStore from "store/useStore";
-import { toast } from "react-toastify";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
+import { toast } from "react-toastify";
 import { login } from "api/auth";
 import { loginSchema } from "components/Forms/validationSchemas";
 import { useFormik } from "formik";
 
 const LoginForm = () => {
   const setToken = useStore((state) => state.setToken);
-  const loading = useStore((state) => state.loginLoading);
-  const startLoginLoad = useStore((state) => state.startLoginLoad);
-  const endLoginLoad = useStore((state) => state.endLoginLoad);
+  const loading = useStore((state) => state.loading);
+  const startLoad = useStore((state) => state.startLoading);
+  const finishLoad = useStore((state) => state.finishLoading);
 
   const formik = useFormik({
     initialValues: {
@@ -20,16 +20,15 @@ const LoginForm = () => {
       password: "",
     },
     onSubmit: async (values) => {
-      startLoginLoad();
+      startLoad();
       const res = await login(values);
       if (res?.status === 200) {
-        console.log("login...");
         setToken(res?.data?.accessToken);
         localStorage.setItem("token", res?.data?.accessToken);
       } else {
         toast.error(res?.data?.message);
       }
-      endLoginLoad();
+      finishLoad();
     },
     validationSchema: loginSchema,
   });
