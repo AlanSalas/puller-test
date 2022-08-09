@@ -12,3 +12,11 @@ export const signupSchema = Yup.object().shape({
   email: Yup.string().email().required(),
   password: Yup.string().min(4).required(),
 });
+
+export const forgotPasswordSchema = Yup.object().shape({
+  email: Yup.string().email().required(),
+});
+
+export const resetPasswordSchema = Yup.object().shape({
+  password: Yup.string().min(4).required(),
+});

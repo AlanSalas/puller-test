@@ -45,9 +45,9 @@ export const forgotPassword = async (email) => {
   }
 };
 
-export const updatePassword = async (password) => {
+export const updatePassword = async (id, password) => {
   try {
-    const response = await API.put("update-password", { password });
+    const response = await API.put(`update-password/${id}`, { password });
     return response;
   } catch (err) {
     return err.response;
