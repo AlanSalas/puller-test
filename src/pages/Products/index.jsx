@@ -30,7 +30,7 @@ const Products = () => {
       <div className="container">
         <h1 className="color-tertiary font-xl text-center mb-2">Products App</h1>
         <Input icon={AiOutlineSearch} type="text" placeholder="Search" value={search} onChange={handleSearch} />
-        <GroupCategories categories={categories} onClick={handleFilterCategory} />
+        <GroupCategories categories={categories} onClick={handleFilterCategory} compareValue={filterCategory} />
         <ListProduct />
       </div>
     </div>

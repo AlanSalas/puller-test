@@ -2,8 +2,7 @@ import axios from "axios";
 import { willExpireToken } from "api/auth";
 
 const axiosConfig = {
-  baseURL: "https://agile-chamber-70057.herokuapp.com/api/",
-  headers: { "Content-Type": "application/json" },
+  baseURL: "http://localhost:9292/api/",
 };
 
 const axiosInstance = axios.create(axiosConfig);

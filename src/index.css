@@ -124,8 +124,21 @@ html {
   margin-bottom: 3rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .w-100 {
   width: 100%;
+}
+
+.w-10rem {
+  width: 10rem;
+}
+
+.h-10rem {
+  height: 10rem;
 }
 
 .h-100 {

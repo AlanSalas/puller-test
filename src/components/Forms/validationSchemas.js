@@ -20,3 +20,9 @@ export const forgotPasswordSchema = Yup.object().shape({
 export const resetPasswordSchema = Yup.object().shape({
   password: Yup.string().min(4).required(),
 });
+
+export const createProductSchema = Yup.object().shape({
+  title: Yup.string().required(),
+  price: Yup.number().required(),
+  description: Yup.string(),
+});

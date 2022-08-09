@@ -18,37 +18,45 @@ export const getProductById = async (id) => {
   }
 };
 
-export const createProduct = async (image, data) => {
+export const createProduct = async (image, data, category) => {
   try {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("price", data.price);
     formData.append("description", data.description);
-    formData.append("category", data.category);
+    formData.append("category", category);
+    if (image !== null && typeof image === "object") {
+      formData.append("image", image, image.name);
+    }
 
-    // if (image) {
-    //   formData.append("image", image.file, image.file.name);
-    // }
+    const response = await API.post("product", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
-    const response = await API.post("product", formData);
     return response;
   } catch (err) {
     return err.response;
   }
 };
 
-export const updateProduct = async (image, data) => {
+export const updateProduct = async (image, data, category, id) => {
   try {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("price", data.price);
     formData.append("description", data.description);
-    formData.append("category", data.category);
-    // if (typeof image === "object") {
-    //   formData.append("image", image.file, image.file.name);
-    // }
+    formData.append("category", category);
+    if (image !== null && typeof image === "object") {
+      formData.append("image", image, image.name);
+    }
 
-    const response = await API.put(`product/${data.key}`, formData);
+    const response = await API.put(`product/${id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
     return response;
   } catch (err) {
     return err.response;

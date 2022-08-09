@@ -31,12 +31,16 @@ const CardProduct = ({ product }) => {
   return (
     <Card style={cardStyle} onClick={handleViewDetail}>
       <div className="product-image-container">
-        {product.image.secureUrl ? (
+        {product?.image?.secureUrl ? (
           <img className="product-image" src={product.image.secureUrl} alt={product.title} />
         ) : (
           <img className="product-image" src={noImage} alt={product.title} />
         )}
-        {product.category && <Chip style={chipStyle}>{product.category}</Chip>}
+        {product.category && (
+          <Chip onClick={() => {}} style={chipStyle}>
+            {product.category}
+          </Chip>
+        )}
       </div>
       <div className="product-details">
         <Author image={product?.user?.image?.secureUrl} username={product?.user?.username} />

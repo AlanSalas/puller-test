@@ -6,7 +6,9 @@ import Button from "components/Button";
 import noImage from "assets/no-image.jpg";
 import useStore from "store/useStore";
 import { AiOutlineArrowLeft, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
+import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
+import { deleteProduct } from "api/product";
 
 const btnStyle = {
   display: "flex",
@@ -17,6 +19,9 @@ const btnStyle = {
 const ProductDetail = () => {
   const { id } = useParams();
   const product = useStore((state) => state.productDetail);
+  const loading = useStore((state) => state.loading);
+  const startLoad = useStore((state) => state.startLoading);
+  const endLoad = useStore((state) => state.finishLoading);
   const fetchProductDetail = useStore((state) => state.fetchProductDetail);
   const navigate = useNavigate();
   const handleGoBack = () => navigate("/");
@@ -25,6 +30,18 @@ const ProductDetail = () => {
   useEffect(() => {
     fetchProductDetail(id);
   }, [id]);
+
+  const handleDelete = async () => {
+    startLoad();
+    const res = await deleteProduct(id);
+    if (res?.status === 200) {
+      toast.success(res?.data?.message);
+      navigate("/");
+    } else {
+      toast.error(res?.data?.message);
+    }
+    endLoad();
+  };
 
   return (
     <div className="w-100 h-100">
@@ -56,8 +73,14 @@ const ProductDetail = () => {
             <Button style={btnStyle} color="btn--info" onClick={handleGoToEdit}>
               Edit <AiOutlineEdit />
             </Button>
-            <Button style={btnStyle} color="btn--error">
-              Delete <AiOutlineDelete />
+            <Button onClick={handleDelete} style={btnStyle} color="btn--error">
+              {loading ? (
+                "Loading..."
+              ) : (
+                <>
+                  Delete <AiOutlineDelete />
+                </>
+              )}
             </Button>
           </div>
         </div>

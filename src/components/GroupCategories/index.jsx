@@ -1,7 +1,7 @@
 import Chip from "components/Chip";
 import "./style.css";
 
-const GroupCategories = ({ categories, style, detail, form, page, onClick }) => {
+const GroupCategories = ({ categories, style, detail, form, page, onClick, compareValue }) => {
   return (
     <div style={{ ...style }} className="categories">
       {!page && (
@@ -13,7 +13,7 @@ const GroupCategories = ({ categories, style, detail, form, page, onClick }) => 
       )}
       <div className="categories-list">
         {categories.map((item, index) => (
-          <Chip key={index} value={item.name} onClick={onClick}>
+          <Chip key={index} value={item.name} compareValue={compareValue} onClick={onClick}>
             {item.name}
           </Chip>
         ))}
