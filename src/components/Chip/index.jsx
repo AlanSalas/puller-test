@@ -1,8 +1,12 @@
 import "./style.css";
 
-const Chip = ({ children, style, value, compareValue, onClick }) => {
+const Chip = ({ children, style, value, compareValue, onClick, id }) => {
   return (
-    <div onClick={() => onClick(value)} style={{ ...style }} className={`chip ${value === compareValue && `active`}`}>
+    <div
+      onClick={() => onClick(value, id)}
+      style={{ ...style }}
+      className={`chip ${value === compareValue && `active`}`}
+    >
       {children}
     </div>
   );

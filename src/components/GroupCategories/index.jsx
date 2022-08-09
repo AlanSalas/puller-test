@@ -13,7 +13,7 @@ const GroupCategories = ({ categories, style, detail, form, page, onClick, compa
       )}
       <div className="categories-list">
         {categories.map((item, index) => (
-          <Chip key={index} value={item.name} compareValue={compareValue} onClick={onClick}>
+          <Chip key={index} id={item._id || index} value={item.name} compareValue={compareValue} onClick={onClick}>
             {item.name}
           </Chip>
         ))}

@@ -26,3 +26,7 @@ export const createProductSchema = Yup.object().shape({
   price: Yup.number().required(),
   description: Yup.string(),
 });
+
+export const createCategorySchema = Yup.object().shape({
+  name: Yup.string().required(),
+});
