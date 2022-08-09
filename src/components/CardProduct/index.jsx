@@ -1,6 +1,7 @@
 import Card from "components/Card";
 import Chip from "components/Chip";
 import Author from "components/Author";
+import noImage from "assets/no-image.jpg";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
@@ -21,27 +22,28 @@ const chipStyle = {
   color: "#fdfeff",
 };
 
-const CardProduct = ({ id, image, title, category, price }) => {
+const CardProduct = ({ product }) => {
   const navigate = useNavigate();
   const handleViewDetail = () => {
-    navigate(`/product/${id}`);
+    navigate(`/product/${product._id}`);
   };
 
   return (
     <Card style={cardStyle} onClick={handleViewDetail}>
       <div className="product-image-container">
-        <img className="product-image" src={image} alt={title} />
-        <Chip style={chipStyle}>{category}</Chip>
+        {product.image.secureUrl ? (
+          <img className="product-image" src={product.image.secureUrl} alt={product.title} />
+        ) : (
+          <img className="product-image" src={noImage} alt={product.title} />
+        )}
+        {product.category && <Chip style={chipStyle}>{product.category}</Chip>}
       </div>
       <div className="product-details">
-        <Author
-          image="https://lh3.googleusercontent.com/a-/AFdZucq_XQARSQX9avY6VEegAj0nnc8coxY_2yeEOgWXAA=s83-c-mo"
-          username="Sarface"
-        />
+        <Author image={product?.user?.image?.secureUrl} username={product?.user?.username} />
         <p style={{ margin: "1rem 0 .3rem 0" }} className="color-primary font-default bold">
-          {title}
+          {product.title}
         </p>
-        <p className="color-primary font-md text-right">${price} FRQTAL</p>
+        <p className="color-primary font-md text-right">${product.price.$numberDecimal} FRQTAL</p>
       </div>
     </Card>
   );

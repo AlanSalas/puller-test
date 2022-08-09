@@ -1,9 +1,7 @@
 import Chip from "components/Chip";
 import "./style.css";
 
-const data = ["electronics", "jewelery", "men's clothing", "women's clothing"];
-
-const GroupCategories = ({ style, detail, form, page }) => {
+const GroupCategories = ({ categories, style, detail, form, page, onClick }) => {
   return (
     <div style={{ ...style }} className="categories">
       {!page && (
@@ -14,8 +12,10 @@ const GroupCategories = ({ style, detail, form, page }) => {
         </h3>
       )}
       <div className="categories-list">
-        {data.map((item) => (
-          <Chip key={item}>{item}</Chip>
+        {categories.map((item) => (
+          <Chip key={item._id} value={item.name} onClick={onClick}>
+            {item.name}
+          </Chip>
         ))}
       </div>
     </div>

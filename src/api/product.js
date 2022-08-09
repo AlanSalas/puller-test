@@ -1,8 +1,8 @@
 import API from "api/config";
 
-export const getProducts = async () => {
+export const getProducts = async (query, category) => {
   try {
-    const response = await API.get("products");
+    const response = await API.get(`products?search=${query}&category=${category}`);
     return response;
   } catch (err) {
     return err.response;
