@@ -9,9 +9,9 @@ export const willExpireToken = (token) => {
   return dateNow > exp;
 };
 
-export const activateUser = async () => {
+export const activateUser = async (id) => {
   try {
-    const response = await API.put("activation");
+    const response = await API.put(`activation/${id}`);
     return response;
   } catch (err) {
     return err.response;

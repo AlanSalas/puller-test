@@ -6,6 +6,7 @@
   color: var(--color-tertiary);
   display: block;
   font-size: var(--font-size-default);
+  font-weight: bold;
   max-width: 100%;
   min-width: 8.75rem;
   padding: 1rem 1.5rem;
@@ -19,7 +20,6 @@
 
 .btn:active,
 .btn:hover {
-  opacity: 0.8;
   outline: 0;
 }
 
