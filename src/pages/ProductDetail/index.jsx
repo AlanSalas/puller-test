@@ -1,23 +1,12 @@
+import { useEffect } from "react";
 import NavigationButton from "components/NavigationButton";
 import Author from "components/Author";
 import GroupCategories from "components/GroupCategories";
 import Button from "components/Button";
+import noImage from "assets/no-image.jpg";
+import useStore from "store/useStore";
 import { AiOutlineArrowLeft, AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
-
-const product = {
-  id: 1,
-  title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-  price: 109.95,
-  description:
-    "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-  category: "men's clothing",
-  image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  rating: {
-    rate: 3.9,
-    count: 120,
-  },
-};
+import { useNavigate, useParams } from "react-router-dom";
 
 const btnStyle = {
   display: "flex",
@@ -26,30 +15,48 @@ const btnStyle = {
 };
 
 const ProductDetail = () => {
+  const { id } = useParams();
+  const product = useStore((state) => state.productDetail);
+  const fetchProductDetail = useStore((state) => state.fetchProductDetail);
   const navigate = useNavigate();
   const handleGoBack = () => navigate("/");
-  const handleGoToEdit = () => navigate(`/product/edit/${product.id}`, { state: `/product/${product.id}` });
+  const handleGoToEdit = () => navigate(`/product/edit/${product._id}`, { state: `/product/${product._id}` });
+
+  useEffect(() => {
+    fetchProductDetail(id);
+  }, [id]);
 
   return (
     <div className="w-100 h-100">
       <div className="container">
         <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
         <div className="w-100 mt-2">
-          <img style={{ height: "27.5rem" }} className="w-100 rounded" src={product.image} alt={product.name} />
-          <p className="color-tertiary font-lg bold my-1">{product.title}</p>
-          <p className="color-tertiary font-default text-right my-1">${product.price} FRQTAL</p>
-          <Author
-            image="https://lh3.googleusercontent.com/a-/AFdZucq_XQARSQX9avY6VEegAj0nnc8coxY_2yeEOgWXAA=s83-c-mo"
-            username="Sarface"
+          {product?.image?.secureUrl ? (
+            <img
+              style={{ height: "27.5rem" }}
+              className="w-100 rounded"
+              src={product.image.secureUrl}
+              alt={product.title}
+            />
+          ) : (
+            <img style={{ height: "27.5rem" }} className="w-100 rounded" src={noImage} alt={product.title} />
+          )}
+          <p className="color-tertiary font-lg bold my-1">{product?.title}</p>
+          <p className="color-tertiary font-default text-right my-1">${product?.price?.$numberDecimal} FRQTAL</p>
+          {product?.user && (
+            <Author image={product?.user?.image?.secureUrl} username={product?.user?.username} detail />
+          )}
+          <p className="color-tertiary font-lg my-1">{product.description}</p>
+          <GroupCategories
+            onClick={() => {}}
+            categories={[{ _id: product?.category, name: product?.category }]}
             detail
           />
-          <p className="color-tertiary font-lg my-1">{product.description}</p>
-          <GroupCategories detail />
           <div className="my-3 d-flex justify-space-around">
-            <Button style={btnStyle} type="btn--info" onClick={handleGoToEdit}>
+            <Button style={btnStyle} color="btn--info" onClick={handleGoToEdit}>
               Edit <AiOutlineEdit />
             </Button>
-            <Button style={btnStyle} type="btn--error">
+            <Button style={btnStyle} color="btn--error">
               Delete <AiOutlineDelete />
             </Button>
           </div>

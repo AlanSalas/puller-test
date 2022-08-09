@@ -12,8 +12,8 @@ const GroupCategories = ({ categories, style, detail, form, page, onClick }) => 
         </h3>
       )}
       <div className="categories-list">
-        {categories.map((item) => (
-          <Chip key={item._id} value={item.name} onClick={onClick}>
+        {categories.map((item, index) => (
+          <Chip key={index} value={item.name} onClick={onClick}>
             {item.name}
           </Chip>
         ))}
