@@ -3,6 +3,10 @@ const authSlice = (set, get) => ({
   setToken: (token) => set({ token }),
   user: JSON.parse(localStorage.getItem("user")) || null,
   setUser: (user) => set({ user }),
+  profile: null,
+  setProfile: (data) => {
+    set({ profile: data });
+  },
   logOut: () => {
     set({ token: null });
     set({ user: null });

@@ -18,15 +18,16 @@ export const getUserData = async (id) => {
   }
 };
 
-export const updateUser = async (image, data) => {
+export const updateUser = async (image, data, id) => {
   try {
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("lastName", data.lastName);
-    // if (image && typeof avatar === "object") {
-    //   formData.append("image", avatar.file, avatar.file.name);
-    // }
-    const response = await API.put(`user/${data.id}`, formData);
+    if (image !== null && typeof image === "object") {
+      formData.append("image", image, image.name);
+    }
+
+    const response = await API.put(`user/${id}`, formData);
     return response;
   } catch (err) {
     return err.response;

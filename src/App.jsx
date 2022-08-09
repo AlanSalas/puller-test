@@ -12,6 +12,7 @@ import CreateEditProduct from "pages/CreateEditProduct";
 import Categories from "pages/Categories";
 import CreateCategory from "pages/CreateCategory";
 import Profile from "pages/Profile";
+import ProfileEdit from "pages/ProfileEdit";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="categories" element={<Categories />} />
             <Route path="category/create" element={<CreateCategory />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="profile/edit" element={<ProfileEdit />} />
           </Route>
           {/* Public Routes */}
           <Route path="login" element={<Login />} />

@@ -30,3 +30,9 @@ export const createProductSchema = Yup.object().shape({
 export const createCategorySchema = Yup.object().shape({
   name: Yup.string().required(),
 });
+
+export const updateProfileSchema = Yup.object().shape({
+  name: Yup.string().required(),
+  lastName: Yup.string().required(),
+  email: Yup.string().email().required(),
+});
