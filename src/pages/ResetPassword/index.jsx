@@ -3,6 +3,7 @@ import Card from "components/Card";
 import ResetPasswordForm from "components/Forms/ResetPasswordForm";
 import Button from "components/Button";
 import jwtDecode from "jwt-decode";
+import useStore from "store/useStore";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { willExpireToken } from "api/auth";
 
@@ -10,8 +11,8 @@ const ResetPassword = () => {
   const { token } = useParams();
   const isValidToken = /^[0-9a-zA-Z]*\.[0-9a-zA-Z]*\.[0-9a-zA-Z-_]*$/.test(token);
   const [isExpired] = useState(isValidToken ? willExpireToken(token) : null);
+  const isAuth = useStore((state) => state.token);
   const decodeToken = jwtDecode(token);
-  console.log(decodeToken);
   const navigate = useNavigate();
 
   const handleGoToGenerateNewLink = () => navigate("/forgot-password");
@@ -24,6 +25,10 @@ const ResetPassword = () => {
         }}
       />
     );
+  }
+
+  if (isAuth) {
+    return <Navigate to="/" />;
   }
 
   return (

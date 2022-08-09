@@ -24,7 +24,6 @@ const chipStyle = {
 const CardProduct = ({ id, image, title, category, price }) => {
   const navigate = useNavigate();
   const handleViewDetail = () => {
-    console.log("click");
     navigate(`/product/${id}`);
   };
 

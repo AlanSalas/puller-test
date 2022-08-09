@@ -2,6 +2,8 @@ import Input from "components/Input";
 import CustomLink from "components/CustomLink";
 import Button from "components/Button";
 import useStore from "store/useStore";
+import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { login } from "api/auth";
@@ -10,9 +12,11 @@ import { useFormik } from "formik";
 
 const LoginForm = () => {
   const setToken = useStore((state) => state.setToken);
+  const setUser = useStore((state) => state.setUser);
   const loading = useStore((state) => state.loading);
   const startLoad = useStore((state) => state.startLoading);
   const finishLoad = useStore((state) => state.finishLoading);
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -24,7 +28,11 @@ const LoginForm = () => {
       const res = await login(values);
       if (res?.status === 200) {
         setToken(res?.data?.accessToken);
+        const decodedToken = jwtDecode(res?.data?.accessToken);
+        setUser(decodedToken);
+        localStorage.setItem("user", JSON.stringify(decodedToken));
         localStorage.setItem("token", res?.data?.accessToken);
+        navigate("/");
       } else {
         toast.error(res?.data?.message);
       }

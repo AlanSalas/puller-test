@@ -14,6 +14,7 @@ const Activation = () => {
   const loading = useStore((state) => state.loading);
   const startLoad = useStore((state) => state.startLoading);
   const finishLoad = useStore((state) => state.finishLoading);
+  const isAuth = useStore((state) => state.token);
   const decodeToken = jwtDecode(token);
   const navigate = useNavigate();
 
@@ -57,6 +58,10 @@ const Activation = () => {
         }}
       />
     );
+  }
+
+  if (isAuth) {
+    return <Navigate to="/" />;
   }
 
   return (

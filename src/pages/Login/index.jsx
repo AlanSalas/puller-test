@@ -1,7 +1,15 @@
 import Card from "components/Card";
 import LoginForm from "components/Forms/LoginForm";
+import useStore from "store/useStore";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
+  const isAuth = useStore((state) => state.token);
+
+  if (isAuth) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <div className="w-100 h-100">
       <div className="container">
