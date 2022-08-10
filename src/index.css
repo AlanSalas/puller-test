@@ -12,7 +12,7 @@
   --color-error: #e74c3c;
   --color-info: #3498db;
   --input-background-color: #e0e0e0;
-  --background-navigation: rgba(13, 34, 61, 0.5);
+  --background-navigation: rgba(253, 254, 255, 0.7);
   --bottom-navigation-height: 6rem;
   --box-shadow: rgb(0 0 0 / 20%) 0px 8px 10px -5px, rgb(0 0 0 / 14%) 0px 16px 24px 2px,
     rgb(0 0 0 / 12%) 0px 6px 30px 5px;
@@ -149,6 +149,10 @@ html {
   display: flex;
 }
 
+.d-block {
+  display: block;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -161,6 +165,10 @@ html {
   align-items: center;
 }
 
+.flex-dir-column {
+  flex-direction: column;
+}
+
 .rounded {
   border-radius: var(--border-radius);
 }
@@ -170,4 +178,71 @@ html {
   max-width: var(--container-max-width);
   height: 100%;
   padding: 1rem;
+}
+
+.product-detail-image {
+  border-radius: var(--border-radius);
+  height: 27.5rem;
+  width: 100%;
+}
+
+.card-product {
+  cursor: pointer;
+  background: var(--color-tertiary);
+  margin-bottom: 1rem;
+  padding: 0.4rem;
+  width: 100%;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* Media queries */
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+
+  .card-product {
+    padding: 1rem;
+  }
+
+  .product-detail-image {
+    display: block;
+    height: 20rem;
+    margin: 0 auto;
+    width: 30%;
+  }
 }
