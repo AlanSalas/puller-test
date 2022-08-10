@@ -13,6 +13,7 @@ import Categories from "pages/Categories";
 import CreateCategory from "pages/CreateCategory";
 import Profile from "pages/Profile";
 import ProfileEdit from "pages/ProfileEdit";
+import Error404 from "pages/Error404";
 
 const App = () => {
   return (
@@ -37,7 +38,7 @@ const App = () => {
           <Route path="forgot-password" element={<ForgotPassword />} />
           <Route path="reset-password/:token" element={<ResetPassword />} />
         </Route>
-        {/* <Route path="*" element={<Error404 />} /> */}
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </Router>
   );
