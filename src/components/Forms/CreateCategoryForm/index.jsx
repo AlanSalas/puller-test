@@ -44,9 +44,11 @@ const CreateCategoryForm = () => {
         error={formik.touched.name && Boolean(formik.errors.name)}
         helperText={formik.touched.name && formik.errors.name}
       />
-      <Button type="submit" color="btn--info">
-        {loading ? "Loading..." : "Create"}
-      </Button>
+      <div className="w-100 d-flex flex-dir-column justify-center align-center">
+        <Button type="submit" color="btn--info">
+          {loading ? "Loading..." : "Create"}
+        </Button>
+      </div>
     </form>
   );
 };

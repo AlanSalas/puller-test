@@ -15,7 +15,7 @@ const Activation = () => {
   const startLoad = useStore((state) => state.startLoading);
   const finishLoad = useStore((state) => state.finishLoading);
   const isAuth = useStore((state) => state.token);
-  const decodeToken = jwtDecode(token);
+  const decodeToken = isValidToken && jwtDecode(token);
   const navigate = useNavigate();
 
   const handleActivate = async () => {
@@ -30,7 +30,7 @@ const Activation = () => {
       navigate("/login");
       finishLoad();
     } catch (error) {
-      navigate("/error/500");
+      console.log(error);
     }
   };
 
@@ -46,18 +46,12 @@ const Activation = () => {
       navigate("/login");
       finishLoad();
     } catch (error) {
-      navigate("/error/500");
+      console.log(error);
     }
   };
 
   if (!isValidToken) {
-    return (
-      <Navigate
-        to={{
-          pathname: "/error/404",
-        }}
-      />
-    );
+    return <Navigate to="/error404" />;
   }
 
   if (isAuth) {
@@ -65,7 +59,7 @@ const Activation = () => {
   }
 
   return (
-    <div className="w-100 h-100">
+    <div className="w-100 h-100 animated fadeIn">
       <div className="container">
         {!isExpired ? (
           <>

@@ -6,13 +6,21 @@ import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 
 const Layout = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
+
+  const getCurrentPathWithoutLastPart = () => {
+    const pathRgx = /\//g;
+    const childroutecount = ((location.pathname || "").match(pathRgx) || []).length;
+    return childroutecount > 1 ? location.pathname.slice(0, location.pathname.lastIndexOf("/")) : location.pathname;
+  };
+
   const routesWithOutNavigation = [
     routes.login,
     routes.signup,
     routes.forgotPassword,
     routes.resetPassword,
     routes.activation,
+    routes.error404,
   ];
 
   return (
@@ -20,7 +28,7 @@ const Layout = () => {
       <ToastContainer theme="dark" position="top-center" hideProgressBar={false} closeOnClick />
 
       <Outlet />
-      {routesWithOutNavigation.includes(pathname) ? null : <BottomNavigation />}
+      {routesWithOutNavigation.includes(getCurrentPathWithoutLastPart()) ? null : <BottomNavigation />}
     </div>
   );
 };

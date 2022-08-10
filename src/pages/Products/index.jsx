@@ -26,7 +26,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="h-100 h-100">
+    <div className="h-100 h-100 animated fadeIn">
       <div className="container">
         <h1 className="color-tertiary font-xl text-center mb-2">Products App</h1>
         <Input icon={AiOutlineSearch} type="text" placeholder="Search" value={search} onChange={handleSearch} />

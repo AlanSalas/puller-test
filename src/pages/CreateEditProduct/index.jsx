@@ -13,7 +13,7 @@ const CreateEditProduct = () => {
   const handleGoBack = () => navigate(from);
 
   return (
-    <div className="w-100 h-100">
+    <div className="w-100 h-100 animated fadeIn">
       <div className="container">
         <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
         <h1 className="color-tertiary font-xl text-center mb-2">{id ? "Edit Product" : "Create Product"}</h1>

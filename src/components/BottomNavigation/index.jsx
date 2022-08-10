@@ -21,37 +21,37 @@ const BottomNavigation = () => {
         <div
           onClick={() => navigate(routes.productCreate)}
           role="button"
-          className={`bottom-navigation-icon ${pathname === routes.productCreate && `active`}`}
+          className={`bottom-navigation-icon ${pathname === routes.productCreate && `active-route`}`}
         >
           <BsPlus />
         </div>
-        <p className="color-tertiary bold font-md">Add</p>
+        <p className="color-primary bold font-md">Add</p>
       </div>
       <div className="bottom-navigation-item">
         <div
           onClick={() => navigate(routes.categories)}
           role="button"
-          className={`bottom-navigation-icon ${pathname === routes.categories && `active`}`}
+          className={`bottom-navigation-icon ${pathname === routes.categories && `active-route`}`}
         >
           <MdCategory />
         </div>
-        <p className="color-tertiary bold font-md">Categories</p>
+        <p className="color-primary bold font-md">Categories</p>
       </div>
       <div className="bottom-navigation-item">
         <div
           onClick={() => navigate(routes.profile)}
           role="button"
-          className={`bottom-navigation-icon ${pathname === routes.profile && `active`}`}
+          className={`bottom-navigation-icon ${pathname === routes.profile && `active-route`}`}
         >
           <BsFillPersonFill />
         </div>
-        <p className="color-tertiary bold font-md">Profile</p>
+        <p className="color-primary bold font-md">Profile</p>
       </div>
       <div className="bottom-navigation-item">
         <div onClick={handleLogout} role="button" className="bottom-navigation-icon">
           <MdLogout />
         </div>
-        <p className="color-tertiary bold font-md">Logout</p>
+        <p className="color-primary bold font-md">Logout</p>
       </div>
     </div>
   );

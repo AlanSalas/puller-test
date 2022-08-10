@@ -1,8 +1,10 @@
 import { useEffect } from "react";
+import NavigationButton from "components/NavigationButton";
 import Card from "components/Card";
 import Avatar from "components/Avatar";
 import Button from "components/Button";
 import useStore from "store/useStore";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { getUserData } from "api/user";
 
@@ -16,6 +18,7 @@ const Profile = () => {
   const setProfile = useStore((state) => state.setProfile);
   const navigate = useNavigate();
   const handleGoToEdit = () => navigate("/profile/edit");
+  const handleGoBack = () => navigate("/");
 
   useEffect(() => {
     getUserData(id)
@@ -28,8 +31,9 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="w-100 h-100">
+    <div className="w-100 h-100 animated fadeIn">
       <div className="container">
+        <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
         <h1 className="color-tertiary font-xl text-center mb-2">Profile</h1>
         <Card style={cardStyle}>
           {profile && (

@@ -1,6 +1,7 @@
 import Input from "components/Input";
 import CustomLink from "components/CustomLink";
 import Button from "components/Button";
+import Loader from "components/Loader";
 import useStore from "store/useStore";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -63,13 +64,15 @@ const LoginForm = () => {
         error={formik.touched.email && Boolean(formik.errors.password)}
         helperText={formik.touched.email && formik.errors.password}
       />
-      <CustomLink to="/forgot-password">Forgot your password?</CustomLink>
-      <Button type="submit" color="btn--info">
-        {loading ? "Loading..." : "Login"}
-      </Button>
-      <CustomLink style={{ margin: "1rem auto 0 auto" }} to="/signup">
-        Sign Up
-      </CustomLink>
+      <div className="w-100 d-flex flex-dir-column justify-center align-center">
+        <CustomLink to="/forgot-password">Forgot your password?</CustomLink>
+        <Button type="submit" color="btn--info">
+          {loading ? "Loading..." : "Login"}
+        </Button>
+        <CustomLink style={{ margin: "1rem auto 0 auto" }} to="/signup">
+          Sign Up
+        </CustomLink>
+      </div>
     </form>
   );
 };

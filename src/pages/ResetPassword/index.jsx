@@ -12,19 +12,13 @@ const ResetPassword = () => {
   const isValidToken = /^[0-9a-zA-Z]*\.[0-9a-zA-Z]*\.[0-9a-zA-Z-_]*$/.test(token);
   const [isExpired] = useState(isValidToken ? willExpireToken(token) : null);
   const isAuth = useStore((state) => state.token);
-  const decodeToken = jwtDecode(token);
+  const decodeToken = isValidToken && jwtDecode(token);
   const navigate = useNavigate();
 
   const handleGoToGenerateNewLink = () => navigate("/forgot-password");
 
   if (!isValidToken) {
-    return (
-      <Navigate
-        to={{
-          pathname: "/error/404",
-        }}
-      />
-    );
+    return <Navigate to="/error404" />;
   }
 
   if (isAuth) {
@@ -32,7 +26,7 @@ const ResetPassword = () => {
   }
 
   return (
-    <div className="w-100 h-100">
+    <div className="w-100 h-100 animated fadeIn">
       <div className="container">
         {!isExpired ? (
           <>

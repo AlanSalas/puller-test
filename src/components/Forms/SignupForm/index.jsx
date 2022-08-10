@@ -87,12 +87,14 @@ const SignupForm = () => {
         error={formik.touched.password && Boolean(formik.errors.password)}
         helperText={formik.touched.password && formik.errors.password}
       />
-      <Button type="submit" color="btn--info">
-        {loading ? "Loading..." : "Register"}
-      </Button>
-      <CustomLink style={{ margin: "1rem auto 0 auto" }} to="/login">
-        Login
-      </CustomLink>
+      <div className="w-100 d-flex flex-dir-column justify-center align-center">
+        <Button type="submit" color="btn--info">
+          {loading ? "Loading..." : "Register"}
+        </Button>
+        <CustomLink style={{ margin: "1rem auto 0 auto" }} to="/login">
+          Login
+        </CustomLink>
+      </div>
     </form>
   );
 };

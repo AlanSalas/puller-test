@@ -43,12 +43,14 @@ const ForgotPasswordForm = () => {
         error={formik.touched.email && Boolean(formik.errors.email)}
         helperText={formik.touched.email && formik.errors.email}
       />
-      <Button type="submit" color="btn--info">
-        {loading ? "Loading..." : "Send"}
-      </Button>
-      <CustomLink style={{ margin: "1rem auto 0 auto" }} to="/login">
-        Login
-      </CustomLink>
+      <div className="w-100 d-flex flex-dir-column justify-center align-center">
+        <Button type="submit" color="btn--info">
+          {loading ? "Loading..." : "Send"}
+        </Button>
+        <CustomLink style={{ margin: "1rem auto 0 auto" }} to="/login">
+          Login
+        </CustomLink>
+      </div>
     </form>
   );
 };

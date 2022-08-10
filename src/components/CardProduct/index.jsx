@@ -5,15 +5,6 @@ import noImage from "assets/no-image.jpg";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
-const cardStyle = {
-  cursor: "pointer",
-  background: "#fdfeff",
-  display: "inline-block",
-  marginBottom: "1rem",
-  padding: "0.4rem",
-  width: "100%",
-};
-
 const chipStyle = {
   position: "absolute",
   top: "0",
@@ -29,7 +20,7 @@ const CardProduct = ({ product }) => {
   };
 
   return (
-    <Card style={cardStyle} onClick={handleViewDetail}>
+    <Card extraClass="card-product" onClick={handleViewDetail}>
       <div className="product-image-container">
         {product?.image?.secureUrl ? (
           <img className="product-image" src={product.image.secureUrl} alt={product.title} />

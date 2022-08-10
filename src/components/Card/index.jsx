@@ -1,8 +1,8 @@
 import "./style.css";
 
-const Card = ({ children, style, onClick }) => {
+const Card = ({ children, style, onClick, extraClass }) => {
   return (
-    <div style={{ ...style }} className="card" onClick={onClick}>
+    <div style={{ ...style }} className={`card ${extraClass}`} onClick={onClick}>
       {children}
     </div>
   );

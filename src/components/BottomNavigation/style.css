@@ -24,8 +24,8 @@
 
 .bottom-navigation-icon {
   cursor: pointer;
-  color: var(--color-tertiary);
-  border: 1px solid var(--color-tertiary);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 100%;
   box-shadow: var(--box-shadow);
   font-size: var(--font-size-xl);
@@ -39,7 +39,6 @@
 
 .bottom-navigation-icon:active,
 .bottom-navigation-icon:hover {
-  opacity: 0.8;
   outline: 0;
 }
 
@@ -47,7 +46,17 @@
   transform: scale(0.9);
 }
 
-.active {
-  background-color: var(--color-tertiary);
-  color: var(--color-primary);
+.active-route {
+  border-color: var(--color-tertiary);
+  background-color: var(--color-primary);
+  color: var(--color-tertiary);
+}
+
+@media (min-width: 1200px) {
+  .bottom-navigation {
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: var(--container-max-width);
+  }
 }

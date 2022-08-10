@@ -102,9 +102,11 @@ const EditProductForm = () => {
         onChange={handleChangeImage}
       />
       <GroupCategories onClick={handleSelectCategory} categories={categories} compareValue={category} form />
-      <Button type="submit" color="btn--info">
-        {loading ? "Loading..." : "Edit"}
-      </Button>
+      <div className="w-100 d-flex flex-dir-column justify-center align-center">
+        <Button type="submit" color="btn--info">
+          {loading ? "Loading..." : "Edit"}
+        </Button>
+      </div>
     </form>
   );
 };

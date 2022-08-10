@@ -44,19 +44,14 @@ const ProductDetail = () => {
   };
 
   return (
-    <div className="w-100 h-100">
+    <div className="w-100 h-100 animated fadeIn">
       <div className="container">
         <NavigationButton icon={AiOutlineArrowLeft} onClick={handleGoBack} />
         <div className="w-100 mt-2">
           {product?.image?.secureUrl ? (
-            <img
-              style={{ height: "27.5rem" }}
-              className="w-100 rounded"
-              src={product.image.secureUrl}
-              alt={product.title}
-            />
+            <img className="product-detail-image" src={product.image.secureUrl} alt={product.title} />
           ) : (
-            <img style={{ height: "27.5rem" }} className="w-100 rounded" src={noImage} alt={product.title} />
+            <img className="product-detail-image" src={noImage} alt={product.title} />
           )}
           <p className="color-tertiary font-lg bold my-1">{product?.title}</p>
           <p className="color-tertiary font-default text-right my-1">${product?.price?.$numberDecimal} FRQTAL</p>

@@ -98,9 +98,11 @@ const CreateProductForm = () => {
         onChange={handleChangeImage}
       />
       <GroupCategories onClick={handleSelectCategory} categories={categories} compareValue={category} form />
-      <Button type="submit" color="btn--info">
-        {loading ? "Loading..." : "Create"}
-      </Button>
+      <div className="w-100 d-flex flex-dir-column justify-center align-center">
+        <Button type="submit" color="btn--info">
+          {loading ? "Loading..." : "Create"}
+        </Button>
+      </div>
     </form>
   );
 };

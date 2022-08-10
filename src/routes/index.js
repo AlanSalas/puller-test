@@ -3,8 +3,8 @@ const routes = {
   login: "/login",
   signup: "/signup",
   forgotPassword: "/forgot-password",
-  resetPassword: "/reset-password/:token",
-  activation: "/activation/:token",
+  resetPassword: "/reset-password",
+  activation: "/activation",
   // Producst
   products: "/",
   productDetail: "/product/:id",
@@ -15,6 +15,8 @@ const routes = {
   categoryCreate: "/category/create",
   // Profile
   profile: "/profile",
+  profileEdit: "/profile/edit",
+  error404: "/error404",
 };
 
 export default routes;
