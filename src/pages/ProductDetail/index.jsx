@@ -55,8 +55,10 @@ const ProductDetail = () => {
           )}
           <p className="color-tertiary font-lg bold my-1">{product?.title}</p>
           <p className="color-tertiary font-default text-right my-1">${product?.price?.$numberDecimal} FRQTAL</p>
-          {product?.user && (
-            <Author image={product?.user?.image?.secureUrl} username={product?.user?.username} detail />
+          {product?.user?.username ? (
+            <Author image={product?.user?.image?.secureUrl} username={product?.user?.username} />
+          ) : (
+            <Author username="Anonymous" />
           )}
           <p className="color-tertiary font-lg my-1">{product.description}</p>
           <GroupCategories
