@@ -1,7 +1,6 @@
 import Input from "components/Input";
 import CustomLink from "components/CustomLink";
 import Button from "components/Button";
-import Loader from "components/Loader";
 import useStore from "store/useStore";
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";

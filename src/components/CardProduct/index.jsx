@@ -27,14 +27,18 @@ const CardProduct = ({ product }) => {
         ) : (
           <img className="product-image" src={noImage} alt={product.title} />
         )}
-        {product.category && (
+        {product.category && product.category !== "null" && (
           <Chip onClick={() => {}} style={chipStyle}>
             {product.category}
           </Chip>
         )}
       </div>
       <div className="product-details">
-        <Author image={product?.user?.image?.secureUrl} username={product?.user?.username} />
+        {product?.user?.username ? (
+          <Author image={product?.user?.image?.secureUrl} username={product?.user?.username} />
+        ) : (
+          <Author username="Anonymous" />
+        )}
         <p style={{ margin: "1rem 0 .3rem 0" }} className="color-primary font-default bold">
           {product.title}
         </p>

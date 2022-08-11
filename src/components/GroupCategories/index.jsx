@@ -7,8 +7,8 @@ const GroupCategories = ({ categories, style, detail, form, page, onClick, compa
       {!page && (
         <h3 className={detail ? "color-tertiary font-default" : "color-tertiary"}>
           {detail && "Category"}
-          {!categories.length === 0 && form && "Select one category"}
-          {!categories.length === 0 && !detail && !form && "Categories"}
+          {form && "Select one category"}
+          {!detail && !form && "Categories"}
         </h3>
       )}
       <div className="categories-list">
